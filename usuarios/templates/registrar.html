@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Registro de Usuario{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5 rounded-3">
+                <div class="card-header text-center">
+                    Registro de Usuario
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="row">
+                            <div class="col-6 pe-2">
+                                <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                            </div>
+                            <div class="col-6 ps-2">
+                                <a href="{% url '_login' %}" class="btn btn-secondary w-100">Iniciar Sesión</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-danger text-center">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

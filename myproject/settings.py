@@ -108,13 +108,26 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
+
 
 USE_I18N = True
 
 USE_TZ = True
+
+# settings.py
+
+# Duración de la sesión en segundos (1 semana)
+# SESSION_COOKIE_AGE = 604800  
+
+# La sesión no se cerrará cuando el navegador se cierre
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# Renueva la sesión con cada solicitud (opcional)
+# SESSION_SAVE_EVERY_REQUEST = True
+
 
 
 # Static files (CSS, JavaScript, Images)

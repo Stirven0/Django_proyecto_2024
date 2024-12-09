@@ -10,10 +10,6 @@
                 </div>
                 <div class="card-body">
                     <p>Bienvenido, {{ user.username }}</p>
-                    <form method="POST" action="{% url 'logout' %}"> 
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-secondary">Cerrar Sesión</button>
-                    </form>
                 </div>
             </div>
         </div>

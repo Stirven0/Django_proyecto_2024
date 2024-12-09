@@ -11,24 +11,41 @@
                 <div class="card-body">
                     <form method="POST">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="row">
-                            <div class="col-6 pe-2">
-                                <button type="submit" class="btn btn-primary w-100">Registrarse</button>
-                            </div>
-                            <div class="col-6 ps-2">
-                                <a href="{% url '_login' %}" class="btn btn-secondary w-100">Iniciar Sesión</a>
-                            </div>
+                        <div class="mb-3">
+                            <label for="{{ form.username.id_for_label }}" class="form-label">Nombre de Usuario</label>
+                                {{ form.username }}
+                            <div class="form-text text-danger">{{form.username.errors }}</div>
                         </div>
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Correo Electrónico</label>
+                            {{ form.email }}
+                            <div class="form-text text-danger">{{form.email.errors }}</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.telefono.id_for_label }}" class="form-label">Teléfono</label>
+                            {{ form.telefono }}
+                            <div class="form-text text-danger">{{ form.telefono.errors }}</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password1.id_for_label }}" class="form-label">Contraseña</label>
+                            {{ form.password1 }}
+                            <div class="form-text text-danger">{{ form.password1.errors }}</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password2.id_for_label }}" class="form-label">Repetir contraseña</label>
+                            {{ form.password2 }}
+                            <div class="form-text text-danger">{{ form.password2.errors }}</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
                     </form>
                 </div>
+                {% if messages %}
                 <div class="card-footer text-danger text-center">
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p>{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

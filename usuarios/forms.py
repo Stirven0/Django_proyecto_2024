@@ -17,3 +17,28 @@ class RegistroForm(UserCreationForm):
         self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Repetir Contraseña'})
         self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email'})
         self.fields['telefono'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Teléfono'})
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Nombre de Usuario',
+            'aria-label': 'Nombre de Usuario',
+            'aria-describedby': 'username-addon',
+        })
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Contraseña',
+            'aria-label': 'Contraseña',
+            'aria-describedby': 'password-addon',
+        })
+    )
+    remember_me = forms.BooleanField(
+        required=False,
+        widget=forms.CheckboxInput(attrs={
+            'class': 'form-check-input',
+        }),
+        label="Mantener la sesión"
+    )
